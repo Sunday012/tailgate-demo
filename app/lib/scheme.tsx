@@ -273,13 +273,13 @@ export function LandingPage() {
 
   return (
       <main className="lucien-page min-h-screen overflow-x-clip text-blue-50">
-        <section className="relative mx-auto flex min-h-screen w-full max-w-[1760px] flex-col px-6 py-5 md:px-16">
-          <nav className="z-10 grid grid-cols-3 items-center font-mono text-sm text-white">
-            <button className="justify-self-start text-blue-50 hover:text-[#7fb0ff]">→ About</button>
-            <div className="justify-self-center text-2xl font-bold tracking-[0.22em] text-white">TAILGATE</div>
+        <section className="relative mx-auto flex min-h-screen w-full max-w-[1760px] flex-col px-4 py-5 sm:px-6 md:px-10 xl:px-16">
+          <nav className="z-10 flex flex-wrap items-center justify-between gap-3 font-mono text-sm text-white">
+            <button className="order-2 text-blue-50 hover:text-[#7fb0ff] sm:order-1">→ About</button>
+            <div className="order-1 w-full text-center text-xl font-bold tracking-[0.22em] text-white sm:order-2 sm:w-auto sm:text-2xl">TAILGATE</div>
             <button
               onClick={startProcessing}
-              className="justify-self-end rounded-[4px] bg-white px-5 py-3 text-[#070b24] hover:bg-blue-50"
+              className="order-3 rounded-[4px] bg-white px-4 py-2.5 text-[#070b24] hover:bg-blue-50 sm:px-5 sm:py-3"
             >
               Book a Demo
             </button>
@@ -287,24 +287,24 @@ export function LandingPage() {
 
           <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-screen bg-[radial-gradient(ellipse_72%_58%_at_50%_82%,rgba(246,249,255,0.92)_0%,rgba(160,197,255,0.5)_24%,rgba(64,104,205,0.2)_46%,rgba(8,13,45,0)_70%)]" />
 
-          <div className="relative z-10 flex flex-1 flex-col items-center justify-center pb-8 pt-16 text-center">
-            <h1 className="max-w-xl bg-[linear-gradient(106deg,#f6f9ff_46%,rgba(150,190,255,0.6)_92%)] bg-clip-text text-[clamp(3.5rem,6.2vw,3.75rem)] font-normal leading-[0.95] tracking-normal text-transparent [-webkit-background-clip:text]">
+          <div className="relative z-10 flex flex-1 flex-col items-center justify-center pb-8 pt-10 text-center sm:pt-16">
+            <h1 className="max-w-xl bg-[linear-gradient(106deg,#f6f9ff_46%,rgba(150,190,255,0.6)_92%)] bg-clip-text text-[2.25rem] font-normal leading-[1.05] tracking-normal text-transparent [-webkit-background-clip:text] min-[420px]:text-[2.6rem] sm:text-[3.75rem] sm:leading-[0.96]">
               Real-Time Study Scheme Generation
               <span className="block">from Any Source</span>
             </h1>
 
-            <p className="mt-7 max-w-2xl font-mono text-sm leading-6 text-blue-100/55">
+            <p className="mt-5 max-w-2xl font-mono text-[11px] leading-5 text-blue-100/55 sm:mt-7 sm:text-sm sm:leading-6">
               Turn spreadsheets, PDFs, images, audio, and links into a grounded, structured study scheme — in real time.
             </p>
-            <p className="mt-3 font-mono text-xs uppercase tracking-[0.18em] text-blue-100/35">
+            <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-blue-100/35 sm:text-xs">
               8 source types supported
             </p>
 
-            <div className="lucien-surface mt-4 w-full max-w-3xl rounded-[18px] border p-2 text-left">
+            <div className="lucien-surface mt-4 w-full max-w-3xl rounded-[18px] border p-2 text-left sm:mt-5">
               <textarea
                 value={prompt}
                 onChange={(event) => setPrompt(event.target.value)}
-                className="min-h-32 w-full resize-none rounded-[12px] border border-blue-300/15 bg-[#081036]/70 px-5 py-5 text-lg leading-8 text-blue-50 outline-none placeholder:text-blue-100/45"
+                className="min-h-32 w-full resize-none rounded-[12px] border border-blue-300/15 bg-[#081036]/70 px-4 py-4 text-base leading-7 text-blue-50 outline-none placeholder:text-blue-100/45 sm:px-5 sm:py-5 sm:text-lg sm:leading-8"
                 placeholder="Upload sources and tell Tailgate what study scheme to create..."
               />
               {uploadedFiles.length > 0 && (
@@ -317,7 +317,7 @@ export function LandingPage() {
                           <img src={file.preview} alt={file.name} className="h-full w-full object-cover" />
                         </div>
                       ) : (
-                        <div className="flex h-[88px] w-[190px] items-center gap-3 rounded-[12px] border border-blue-300/30 bg-[#0d1744] px-3">
+                        <div className="flex h-[88px] w-[min(190px,calc(100vw-4rem))] items-center gap-3 rounded-[12px] border border-blue-300/30 bg-[#0d1744] px-3">
                           <span className="grid size-9 shrink-0 place-items-center rounded-[8px] bg-[#6ea2ff]/15 font-mono text-[11px] text-[#6ea2ff]">
                             {kindShort(file.kind)}
                           </span>
@@ -391,7 +391,7 @@ export function LandingPage() {
                     </label>
                   ))}
                 </div>
-                <div className="flex items-center justify-between gap-2 border-t border-blue-300/15 pt-3">
+                <div className="flex flex-col gap-2 border-t border-blue-300/15 pt-3 sm:flex-row sm:items-center sm:justify-between">
                   <button
                     onClick={() => setPrompt("Search my uploaded sources for pending bills, stock gaps, and production controls before creating the scheme.")}
                     className="rounded-full border border-blue-300/25 px-4 py-2 text-sm text-blue-100/80 hover:border-blue-200/70"
@@ -408,7 +408,7 @@ export function LandingPage() {
               </div>
             </div>
 
-            <div className="mt-24 flex flex-wrap items-center justify-center gap-3 text-sm text-blue-100/45">
+            <div className="mt-14 flex flex-wrap items-center justify-center gap-3 text-sm text-blue-100/45 sm:mt-20 lg:mt-24">
               <span>or add</span>
               <button
                 onClick={() => setPrompt((current) => `${current}\n\nLink added: https://tacniju.vercel.app/accounting/production/raw-material-journal`)}
@@ -532,13 +532,86 @@ export function ProcessingScreen() {
     ];
     const overall = Math.min(100, Math.round(((processingStep + 0.5) / steps.length) * 100));
   return (
-      <main className="lucien-page grid min-h-screen place-items-center px-6 text-blue-50">
-        <section className="lucien-surface w-full max-w-2xl rounded-[22px] border p-8">
-          <div className="flex items-center justify-between gap-4">
+    <main className="min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(84,135,255,0.28),transparent_32%),linear-gradient(180deg,#070b24,#080d2e)] text-blue-50">
+      <div className="grid min-h-screen lg:grid-cols-[320px_1fr]">
+        <aside className="hidden border-r border-blue-300/20 bg-[#081033]/85 p-6 opacity-60 grayscale animate-pulse lg:block">
+          <div className="flex items-center gap-3">
+            <div>
+              <div className="h-5 w-24 rounded bg-white/10" />
+              <div className="mt-2 h-3 w-32 rounded bg-white/5" />
+            </div>
+          </div>
+          <div className="mt-8 border-y border-blue-300/25 py-2">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="flex w-full items-center justify-between border-b border-blue-300/20 py-4 last:border-b-0">
+                <div className="h-4 w-28 rounded bg-white/5" />
+                <div className="h-4 w-4 rounded bg-white/5" />
+              </div>
+            ))}
+          </div>
+          <div className="mt-8">
+            <div className="flex items-center justify-between">
+              <div className="h-4 w-32 rounded bg-white/10" />
+              <div className="h-6 w-16 rounded-full bg-white/5" />
+            </div>
+            <div className="mt-4 space-y-2.5">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="w-full rounded-[12px] border border-blue-300/10 bg-white/[0.02] p-4">
+                  <div className="h-4 w-3/4 rounded bg-white/10" />
+                  <div className="mt-2 h-3 w-1/2 rounded bg-white/5" />
+                  <div className="mt-4 flex gap-2">
+                    <div className="h-4 w-12 rounded-full bg-white/5" />
+                    <div className="h-4 w-16 rounded-full bg-white/5" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </aside>
+
+        <section className="relative overflow-hidden opacity-60 grayscale animate-pulse">
+          <div className="pointer-events-none absolute inset-x-12 top-20 h-80 rounded-full bg-blue-400/5 blur-3xl" />
+          <header className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-blue-300/25 bg-[#081033]/80 px-6 py-5 backdrop-blur">
+            <div>
+              <div className="h-3 w-40 rounded bg-white/5" />
+              <div className="mt-2 h-8 w-64 rounded bg-white/10" />
+            </div>
+            <div className="flex gap-2">
+              <div className="h-7 w-24 rounded-full bg-white/5" />
+              <div className="h-7 w-20 rounded-full bg-white/5" />
+            </div>
+          </header>
+          <div className="p-4 sm:p-6">
+            <div className="grid gap-6 xl:grid-cols-[1fr_340px]">
+              <div className="rounded-[18px] border border-blue-300/20 bg-white/[0.01] p-8">
+                <div className="h-10 w-3/4 rounded bg-white/10" />
+                <div className="mt-6 space-y-3">
+                  <div className="h-4 w-full rounded bg-white/5" />
+                  <div className="h-4 w-[90%] rounded bg-white/5" />
+                  <div className="h-4 w-[95%] rounded bg-white/5" />
+                  <div className="h-4 w-[80%] rounded bg-white/5" />
+                </div>
+                <div className="mt-12 grid gap-4 sm:grid-cols-2">
+                  <div className="h-32 rounded-[12px] border border-blue-300/10 bg-white/[0.02]" />
+                  <div className="h-32 rounded-[12px] border border-blue-300/10 bg-white/[0.02]" />
+                </div>
+              </div>
+              <div className="space-y-6">
+                <div className="h-48 rounded-[18px] border border-blue-300/20 bg-white/[0.02]" />
+                <div className="h-64 rounded-[18px] border border-blue-300/20 bg-white/[0.02]" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div className="fixed inset-0 z-50 grid place-items-center overflow-auto bg-[#070b24]/40 p-4 backdrop-blur-md sm:p-6">
+        <section className="lucien-surface max-h-[calc(100vh-2rem)] w-full max-w-2xl overflow-auto rounded-[18px] border p-5 sm:rounded-[22px] sm:p-8">
+          <div className="flex flex-wrap items-center justify-between gap-4">
             <Pill tone="blue">Processing sources</Pill>
             <span className="font-mono text-sm text-blue-100/60">{overall}%</span>
           </div>
-          <h1 className="mt-5 text-3xl font-semibold text-white">Tailgate is building the learning scheme</h1>
+          <h1 className="mt-5 text-2xl font-semibold text-white sm:text-3xl">Tailgate is building the learning scheme</h1>
           <p className="mt-3 text-blue-100/65">This is predefined for the demo, but shows the intended production flow.</p>
 
           <div className="mt-6 h-1.5 overflow-hidden rounded-full bg-white/10">
@@ -598,14 +671,15 @@ export function ProcessingScreen() {
                         {done ? "Done" : active ? "Working" : "Queued"}
                       </span>
                     </div>
-                    <p className="mt-1 truncate text-sm text-blue-100/55">{step.detail}</p>
+                    <p className="mt-1 text-sm text-blue-100/55">{step.detail}</p>
                   </div>
                 </div>
               );
             })}
           </div>
         </section>
-      </main>
+      </div>
+    </main>
   );
 }
 
@@ -673,9 +747,9 @@ export function WorkspaceScreen() {
   }
 
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(84,135,255,0.28),transparent_32%),linear-gradient(180deg,#070b24,#080d2e)] text-blue-50">
+    <main className="min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_50%_0%,rgba(84,135,255,0.28),transparent_32%),linear-gradient(180deg,#070b24,#080d2e)] text-blue-50">
       <div className="grid min-h-screen lg:grid-cols-[320px_1fr]">
-        <aside className="border-r border-blue-300/20 bg-[#081033]/85 p-6">
+        <aside className="min-w-0 overflow-hidden border-b border-blue-300/20 bg-[#081033]/85 p-4 lg:border-b-0 lg:border-r lg:p-6">
           <div className="flex items-center gap-3">
             <div>
               <p className="text-sm font-semibold uppercase text-white">Tailgate</p>
@@ -683,7 +757,7 @@ export function WorkspaceScreen() {
             </div>
           </div>
 
-          <div className="mt-8 border-y border-blue-300/25">
+          <div className="mt-5 grid grid-cols-2 gap-2 border-y border-blue-300/25 py-3 sm:flex sm:flex-wrap lg:mt-8 lg:block lg:py-0">
             {[
               ["lesson", "Course workspace"],
               ["dashboard", "Metrics"],
@@ -694,16 +768,16 @@ export function WorkspaceScreen() {
               <button
                 key={key}
                 onClick={() => setView(key as View)}
-                className={`flex w-full items-center justify-between border-b border-blue-300/20 py-4 text-left text-sm last:border-b-0 ${view === key ? "text-[#6ea2ff]" : "text-blue-100/80 hover:text-white"}`}
+                className={`flex min-w-0 items-center justify-center gap-3 rounded-full border border-blue-300/15 px-3 py-2 text-center text-sm sm:shrink-0 lg:w-full lg:justify-between lg:rounded-none lg:border-0 lg:border-b lg:border-blue-300/20 lg:px-0 lg:py-4 lg:text-left lg:last:border-b-0 ${view === key ? "text-[#6ea2ff]" : "text-blue-100/80 hover:text-white"}`}
               >
-                <span>{label}</span>
-                <span className="text-blue-100/35">›</span>
+                <span className="truncate">{label}</span>
+                <span className="hidden text-blue-100/35 lg:inline">›</span>
               </button>
             ))}
           </div>
 
           {view === "lesson" && (
-          <div className="mt-8">
+          <div className="mt-5 lg:mt-8">
             <div className="flex items-center justify-between">
               <p className="text-sm font-semibold text-blue-100/80">Table of contents</p>
               <button
@@ -713,7 +787,7 @@ export function WorkspaceScreen() {
                 Expand
               </button>
             </div>
-            <div className="mt-4 space-y-2.5">
+            <div className="mt-4 grid gap-3 lg:block lg:space-y-2.5">
               {schemeModules.slice(0, expandedSources ? schemeModules.length : 3).map((module, index) => {
                 const active = selectedModule === index && view === "lesson";
                 return (
@@ -743,7 +817,7 @@ export function WorkspaceScreen() {
                       )}
                     </div>
                     <div className="mt-3 flex flex-wrap gap-1.5">
-                      {module.topics.map((topic) => (
+                      {module.topics.slice(0, 2).map((topic) => (
                         <span
                           key={topic}
                           className="rounded-full border border-blue-300/15 bg-blue-300/[0.06] px-2 py-0.5 text-[11px] text-blue-100/65"
@@ -761,22 +835,22 @@ export function WorkspaceScreen() {
           )}
         </aside>
 
-        <section className="relative overflow-hidden">
+        <section className="relative min-w-0 overflow-hidden">
           <div className="pointer-events-none absolute inset-x-12 top-20 h-80 rounded-full bg-blue-400/10 blur-3xl" />
-          <header className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-blue-300/25 bg-[#081033]/80 px-6 py-5 backdrop-blur">
-            <div>
-              <p className="text-xs uppercase tracking-[0.16em] text-blue-100/45">{scheme.courseTitle}</p>
-              <h2 className="mt-1 text-2xl font-normal text-white">{viewTitle(view)}</h2>
+          <header className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-blue-300/25 bg-[#081033]/80 px-4 py-4 backdrop-blur sm:px-6 sm:py-5">
+            <div className="min-w-0">
+              <p className="truncate text-xs uppercase tracking-[0.16em] text-blue-100/45">{scheme.courseTitle}</p>
+              <h2 className="mt-1 text-xl font-normal text-white sm:text-2xl">{viewTitle(view)}</h2>
             </div>
             <div className="flex flex-wrap gap-2">
               <Pill tone="green">Shareable scheme</Pill>
               <Pill tone="blue">7 sources</Pill>
-              <Pill tone="amber">Demo mode</Pill>
+              <span className="hidden sm:inline-flex"><Pill tone="amber">Demo mode</Pill></span>
             </div>
           </header>
 
           <div
-            className="h-[calc(100vh-81px)] overflow-auto p-6"
+            className="p-4 lg:h-[calc(100vh-81px)] lg:overflow-auto lg:p-6"
             onMouseUp={(event) => {
               const text = window.getSelection()?.toString().trim() ?? "";
               if (text.length > 2) {
@@ -833,13 +907,13 @@ export function WorkspaceScreen() {
 
           <button
             onClick={() => setChatOpen((value) => !value)}
-            className="fixed bottom-6 right-6 z-20 rounded-full border border-blue-300/30 bg-[#070b24] px-5 py-4 font-semibold text-white hover:border-blue-300/45 hover:text-[#6ea2ff]"
+            className="fixed bottom-4 right-4 z-20 rounded-full border border-blue-300/30 bg-[#070b24] px-4 py-3 font-semibold text-white hover:border-blue-300/45 hover:text-[#6ea2ff] sm:bottom-6 sm:right-6 sm:px-5 sm:py-4"
           >
             Ask AI
           </button>
 
           {chatOpen && (
-            <div className="fixed bottom-24 right-6 z-30 w-[min(420px,calc(100vw-2rem))] rounded-[18px] border border-blue-300/30 bg-[#0d1744]">
+            <div className="fixed inset-x-4 bottom-20 z-30 max-h-[calc(100vh-7rem)] overflow-auto rounded-[18px] border border-blue-300/30 bg-[#0d1744] sm:bottom-24 sm:left-auto sm:right-6 sm:w-[min(420px,calc(100vw-2rem))]">
               <div className="flex items-center justify-between border-b border-blue-300/20 p-4">
                 <div>
                   <p className="font-semibold text-white">Context chat</p>
@@ -971,23 +1045,23 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
         </div>
       </section> */}
 
-      <section className="mx-auto max-w-6xl pb-20 text-center">
+      <section className="mx-auto max-w-6xl px-2 pb-16 text-center sm:pb-20">
         <SectionMarker>The Mission</SectionMarker>
-        <h2 className="mt-10 text-[clamp(3rem,5vw,5.75rem)] font-normal leading-[1.08] text-white">
+        <h2 className="mt-10 text-[clamp(2.35rem,9vw,5.75rem)] font-normal leading-[1.08] text-white">
           You can&apos;t study what you can&apos;t see. Hidden knowledge needs to be structured and usable.
         </h2>
       </section>
 
       <ProblemCardsSection />
 
-      <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden px-6 py-24 text-center lg:py-28">
+      <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden px-4 py-16 text-center sm:px-6 lg:py-28">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_52%,rgba(83,134,220,0.45),rgba(10,18,59,0.94)_38%,#070b24_76%)]" />
         <div className="relative z-10 mx-auto max-w-[1600px]">
           <SectionMarker>Solution</SectionMarker>
-          <h2 className="mx-auto mt-10 max-w-4xl text-[clamp(2.9rem,4.1vw,5rem)] font-normal leading-[1.1] text-white">
+          <h2 className="mx-auto mt-10 max-w-4xl text-[clamp(2.25rem,8vw,5rem)] font-normal leading-[1.1] text-white">
             Tailgate becomes the source-to-scheme layer for AI learning
           </h2>
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-blue-50/85">
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-blue-50/85 sm:mt-8 sm:text-lg sm:leading-8">
             It verifies every source, preserves existing modules when new sources arrive, and gives learners context
             chat, glossary support, objective quizzes, and feedback loops.
           </p>
@@ -1074,9 +1148,9 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
             ))}
           </div>
 
-          <div className="mx-auto mt-16 grid max-w-7xl gap-6 text-left md:grid-cols-3">
+          <div className="mx-auto mt-12 grid max-w-7xl gap-4 text-left sm:gap-6 md:grid-cols-3 lg:mt-16">
             {solutionBenefits.map(([title, body], index) => (
-              <div key={title} className="lucien-surface min-h-64 rounded-[18px] border p-8">
+              <div key={title} className="lucien-surface rounded-[18px] border p-6 sm:min-h-64 sm:p-8">
                 <p className="font-mono text-3xl text-[#6ea2ff]">0{index + 1}</p>
                 <h3 className="mt-8 text-2xl font-normal leading-tight text-[#6ea2ff]">{title}</h3>
                 <p className="mt-7 leading-7 text-blue-50/90">{body}</p>
@@ -1086,14 +1160,14 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-16 sm:py-24">
         <SectionMarker>How it Works</SectionMarker>
-        <h2 className="mx-auto mt-10 max-w-3xl text-center text-5xl font-normal leading-tight text-white">
+        <h2 className="mx-auto mt-10 max-w-3xl text-center text-[clamp(2.25rem,8vw,3rem)] font-normal leading-tight text-white">
           Deploy Tailgate as a guided study engine
         </h2>
-        <div className="mx-auto mt-16 grid max-w-6xl gap-6 md:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:gap-6 md:grid-cols-3 lg:mt-16">
           {["Upload and search sources", "Generate stable modules", "Learn with chat and feedback"].map((item, index) => (
-            <div key={item} className="lucien-surface rounded-[18px] border p-8">
+            <div key={item} className="lucien-surface rounded-[18px] border p-6 sm:p-8">
               <p className="font-mono text-[#6ea2ff]">0{index + 1}</p>
               <h3 className="mt-8 text-2xl text-white">{item}</h3>
             </div>
@@ -1101,10 +1175,10 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
         </div>
       </section>
 
-      <section className="relative grid min-h-[620px] place-items-center overflow-hidden py-24 text-center">
+      <section className="relative grid min-h-[520px] place-items-center overflow-hidden py-16 text-center sm:min-h-[620px] sm:py-24">
         <div className="lucien-orb absolute inset-x-0 top-0 mx-auto h-[560px] max-w-5xl opacity-80" />
         <div className="relative z-10">
-          <h2 className="mx-auto max-w-3xl text-5xl font-normal leading-tight text-white">
+          <h2 className="mx-auto max-w-3xl text-[clamp(2.25rem,8vw,3rem)] font-normal leading-tight text-white">
             Build with certainty, teach without hesitation
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-blue-50/85">
@@ -1119,13 +1193,13 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl py-24">
+      <section className="mx-auto max-w-5xl py-16 sm:py-24">
         <SectionMarker>FAQ</SectionMarker>
-        <h2 className="mt-10 text-center text-5xl font-normal text-white">Your questions, answered</h2>
-        <div className="mt-16 space-y-4">
+        <h2 className="mt-10 text-center text-[clamp(2.25rem,8vw,3rem)] font-normal text-white">Your questions, answered</h2>
+        <div className="mt-12 space-y-4 sm:mt-16">
           {faqs.map((faq) => (
-            <details key={faq} className="rounded-[16px] border border-blue-300/25 bg-[#0b1440]/55 px-6 py-5">
-              <summary className="cursor-pointer text-xl text-white">{faq}</summary>
+            <details key={faq} className="rounded-[16px] border border-blue-300/25 bg-[#0b1440]/55 px-4 py-5 sm:px-6">
+              <summary className="cursor-pointer text-lg text-white sm:text-xl">{faq}</summary>
               <p className="mt-4 leading-7 text-blue-50/80">
                 This demo mocks the product behavior with predefined data so the full story can be presented in three days.
               </p>
@@ -1144,7 +1218,7 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
           </div>
           <span>© 2026 Tailgate Learning Systems. All rights reserved.</span>
         </div>
-        <div className="mt-16 text-[clamp(5rem,15vw,16rem)] font-black leading-none tracking-[0.04em] text-white">
+        <div className="mt-16 overflow-hidden text-[clamp(3.7rem,15vw,16rem)] font-black leading-none tracking-[0.04em] text-white">
           TAILGATE
         </div>
       </footer>
@@ -1318,20 +1392,20 @@ function LessonView({
     ? ["overview", "cards", "quiz", "activity", "glossary"]
     : ["overview", "cards", "quiz", "glossary"];
   return (
-    <div className="grid gap-6 xl:grid-cols-[1fr_340px]">
-      <article className="border-y border-blue-300/25 bg-[#070b24]">
-        <div className="border-b border-blue-300/25 p-6">
+    <div className="grid min-w-0 gap-5 2xl:grid-cols-[minmax(0,1fr)_340px] 2xl:gap-6">
+      <article className="min-w-0 border-y border-blue-300/25 bg-[#070b24]">
+        <div className="border-b border-blue-300/25 p-4 sm:p-6">
           <div className="flex flex-wrap items-center gap-2">
             <Pill tone="blue">Module</Pill>
             <Pill tone="green">{activeModule.time}</Pill>
           </div>
-          <h1 className="mt-6 text-5xl font-normal leading-tight text-white">{activeModule.title}</h1>
-          <p className="mt-5 max-w-4xl text-lg leading-8 text-blue-100/70">
+          <h1 className="mt-6 break-words text-[clamp(1.9rem,8vw,3rem)] font-normal leading-tight text-white">{activeModule.title}</h1>
+          <p className="mt-5 max-w-4xl text-base leading-7 text-blue-100/70 sm:text-lg sm:leading-8">
             A generated study document — read the lesson, drill the cards, take the objective quiz, and review the key
             terms before moving on.
           </p>
         </div>
-        <div className="flex gap-2 overflow-auto border-b border-blue-300/25 p-4">
+        <div className="flex gap-2 overflow-auto border-b border-blue-300/25 p-3 sm:p-4">
           {tabs.map((tab) => (
             <button
               key={tab}
@@ -1342,13 +1416,13 @@ function LessonView({
             </button>
           ))}
         </div>
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {lessonTab === "overview" && (
             <div className="space-y-5">
               <section className="border-b border-blue-300/25 pb-8">
                 <h3 className="text-sm font-semibold uppercase text-blue-100/45">Generated lesson</h3>
-                <p className="mt-5 text-2xl leading-[1.45] text-blue-50">{activeModule.lesson}</p>
-                <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-blue-300/25 px-4 py-2 text-sm text-blue-100/70">
+                <p className="mt-5 text-xl leading-[1.45] text-blue-50 sm:text-2xl">{activeModule.lesson}</p>
+                <p className="mt-6 flex items-start gap-2 rounded-[12px] border border-blue-300/25 px-4 py-2 text-sm text-blue-100/70 sm:inline-flex sm:items-center sm:rounded-full">
                   <span className="text-[#6ea2ff]">✦</span>
                   Select any text above, then click &ldquo;Ask AI about this&rdquo;.
                 </p>
@@ -1356,7 +1430,7 @@ function LessonView({
               {(activeModule.mnemonic.phrase || activeModule.mnemonic.explanation) && (
                 <section className="border-b border-blue-300/25 pb-8">
                   <h3 className="text-sm font-semibold uppercase text-blue-100/45">Mnemonic</h3>
-                  <p className="mt-4 text-4xl font-normal text-[#6ea2ff]">{activeModule.mnemonic.phrase}</p>
+                  <p className="mt-4 text-3xl font-normal text-[#6ea2ff] sm:text-4xl">{activeModule.mnemonic.phrase}</p>
                   <p className="mt-3 text-blue-100/80">{activeModule.mnemonic.explanation}</p>
                 </section>
               )}
@@ -1443,7 +1517,7 @@ function LessonView({
         </div>
       </article>
 
-      <aside className="space-y-5">
+      <aside className="grid gap-5 lg:grid-cols-2 2xl:block 2xl:space-y-5">
         <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
           <h3 className="font-semibold text-white">Document tools</h3>
           <div className="mt-4 space-y-2">
@@ -1488,7 +1562,7 @@ function LessonView({
 function DashboardView() {
   return (
     <div className="space-y-5">
-      <div className="grid gap-4 md:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {[
           ["86%", "Quiz accuracy", "green"],
           ["12", "Documents uploaded", "blue"],
@@ -1497,13 +1571,13 @@ function DashboardView() {
         ].map(([value, label, tone]) => (
           <div key={label} className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
             <Pill tone={tone}>{label}</Pill>
-            <p className="mt-4 text-4xl font-semibold text-white">{value}</p>
+            <p className="mt-4 text-3xl font-semibold text-white sm:text-4xl">{value}</p>
           </div>
         ))}
       </div>
       <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
         <h3 className="text-lg font-semibold text-white">Post-quiz feedback animation</h3>
-        <div className="mt-5 grid gap-4 md:grid-cols-3">
+        <div className="mt-5 grid gap-4 sm:grid-cols-3">
           <div className="rounded-[8px] bg-blue-400/10 p-4"><p className="text-blue-100">Strong</p><p className="mt-2 text-white">Financial reports</p><Bar value={91} tone="bg-blue-400" /></div>
           <div className="rounded-[8px] bg-blue-500/10 p-4"><p className="text-blue-200">Developing</p><p className="mt-2 text-white">Inventory controls</p><Bar value={67} tone="bg-blue-500" /></div>
           <div className="rounded-[8px] bg-blue-700/10 p-4"><p className="text-blue-200">Needs work</p><p className="mt-2 text-white">Production tracing</p><Bar value={44} tone="bg-blue-700" /></div>
@@ -1532,14 +1606,14 @@ function LibraryView({
             <h3 className="text-lg font-semibold text-white">Uploaded documents</h3>
             <p className="mt-1 text-blue-100/65">Add sources anytime — Tailgate inserts only new modules and leaves existing ones untouched.</p>
           </div>
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
             <button
               onClick={() => onAddSources([{ name: "Supplier exception email", kind: "Email export", meta: "19 threads" }])}
               className="rounded-full border border-blue-300/30 px-4 py-2 text-sm text-blue-100/80 hover:border-blue-200/70"
             >
               Add sample
             </button>
-            <label className="flex cursor-pointer items-center gap-2 rounded-full bg-[#6ea2ff] px-4 py-2 font-semibold text-[#070b24] hover:bg-[#86b4ff]">
+            <label className="flex cursor-pointer items-center justify-center gap-2 rounded-full bg-[#6ea2ff] px-4 py-2 font-semibold text-[#070b24] hover:bg-[#86b4ff]">
               <span className="text-lg leading-none">+</span>
               Add more sources
               <input
@@ -1569,7 +1643,7 @@ function LibraryView({
           </div>
         )}
       </div>
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {allSources.map((source, index) => {
           const isNew = index >= sources.length;
           return (
@@ -1602,9 +1676,9 @@ function ScheduleView() {
   ];
 
   return (
-    <div className="grid gap-7 2xl:grid-cols-[minmax(0,1fr)_380px]">
+    <div className="grid min-w-0 gap-5 2xl:grid-cols-[minmax(0,1fr)_380px] 2xl:gap-7">
       <section className="space-y-4">
-        <div className="rounded-[14px] border border-blue-300/25 bg-[#0d1744] p-6">
+        <div className="rounded-[14px] border border-blue-300/25 bg-[#0d1744] p-4 sm:p-6">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.12em] text-blue-100/45">Study plan</p>
@@ -1621,7 +1695,7 @@ function ScheduleView() {
               ["82%", "target accuracy"],
               ["4", "review streak"],
             ].map(([value, label]) => (
-              <div key={label} className="rounded-[10px] border border-blue-300/15 bg-blue-950/30 p-5">
+              <div key={label} className="rounded-[10px] border border-blue-300/15 bg-blue-950/30 p-4 sm:p-5">
                 <p className="text-2xl font-semibold text-white">{value}</p>
                 <p className="mt-1 text-sm text-blue-100/55">{label}</p>
               </div>
@@ -1631,8 +1705,8 @@ function ScheduleView() {
 
         <div className="grid gap-4 xl:grid-cols-2">
           {weekDays.map((item) => (
-            <div key={`${item.day}-${item.date}`} className="rounded-[12px] border border-blue-300/20 bg-[#0d1744] p-5">
-              <div className="grid gap-5 sm:grid-cols-[112px_1fr_auto] sm:items-center">
+            <div key={`${item.day}-${item.date}`} className="rounded-[12px] border border-blue-300/20 bg-[#0d1744] p-4 sm:p-5">
+              <div className="grid gap-4 sm:grid-cols-[96px_1fr_auto] sm:items-center xl:grid-cols-[112px_1fr_auto]">
                 <div className="flex items-center gap-4 sm:block">
                   <p className="text-sm font-semibold text-blue-100/65">{item.day}</p>
                   <p className="text-4xl font-semibold text-white sm:mt-2">{item.date}</p>
@@ -1659,7 +1733,7 @@ function ScheduleView() {
       </section>
 
       <aside className="space-y-4">
-        <div className="rounded-[14px] border border-blue-300/25 bg-[#0d1744] p-6">
+        <div className="rounded-[14px] border border-blue-300/25 bg-[#0d1744] p-4 sm:p-6">
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.12em] text-blue-100/45">Reminder</p>
@@ -1699,7 +1773,7 @@ function ScheduleView() {
           </div>
         </div>
 
-        <div className="rounded-[14px] border border-blue-300/20 bg-[#0d1744] p-6">
+        <div className="rounded-[14px] border border-blue-300/20 bg-[#0d1744] p-4 sm:p-6">
           <h3 className="font-semibold text-white">Next up</h3>
           <div className="mt-4 space-y-3">
             {["Read generated lesson", "Complete 6 flashcards", "Take objective quiz"].map((item, index) => (

@@ -83,25 +83,25 @@ export default function ProblemCardsSection() {
     >
       <div className="sticky top-0 h-screen overflow-hidden text-center">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_72%,rgba(65,105,182,0.38),rgba(8,14,48,0.9)_36%,#070b24_74%)]" />
-        <div className="relative z-10 flex h-full flex-col py-10 lg:py-12">
+        <div className="relative z-10 flex h-full flex-col py-8 sm:py-10 lg:py-12">
           <SectionMarker>The Problem</SectionMarker>
-          <h2 className="mx-auto mt-8 max-w-5xl px-6 text-[clamp(2.4rem,3.4vw,4.25rem)] font-normal leading-[1.12] text-white">
+          <h2 className="mx-auto mt-6 max-w-5xl px-4 text-[clamp(2rem,8vw,4.25rem)] font-normal leading-[1.12] text-white sm:mt-8 sm:px-6">
             Source overload is outpacing learning workflows
           </h2>
 
           <div ref={viewportRef} className="my-auto overflow-hidden py-6">
             <div
               ref={trackRef}
-              className="flex w-max gap-6 px-[max(32px,calc((100vw-760px)/2))]"
+              className="flex w-max gap-4 px-4 sm:gap-6 sm:px-[max(32px,calc((100vw-760px)/2))]"
               style={{ transform: `translateX(-${scrollProgress * trackShift}px)` }}
             >
               {problemCards.map((card) => (
                 <article
                   key={card.title}
-                  className="relative h-[min(500px,72vh)] w-[760px] overflow-hidden rounded-[14px] border border-blue-300/25 bg-[#121b49]/80 p-9 text-left"
+                  className="relative h-[min(500px,62vh)] w-[min(86vw,760px)] overflow-hidden rounded-[14px] border border-blue-300/25 bg-[#121b49]/80 p-5 text-left sm:h-[min(500px,72vh)] sm:p-9"
                 >
                   <div className="relative z-20 max-w-[390px]">
-                    <div className="mb-10 grid size-8 place-items-center text-[#5f9bff]">
+                    <div className="mb-6 grid size-8 place-items-center text-[#5f9bff] sm:mb-10">
                       {card.icon === "shield" ? (
                         <svg viewBox="0 0 24 24" className="size-8" fill="none" stroke="currentColor" strokeWidth="1.5">
                           <path d="M12 3 20 6v6c0 5-3.2 8-8 9-4.8-1-8-4-8-9V6l8-3Z" />
@@ -119,11 +119,11 @@ export default function ProblemCardsSection() {
                         </svg>
                       )}
                     </div>
-                    <h3 className="text-2xl font-normal text-[#5f9bff]">{card.title}</h3>
-                    <p className="mt-7 text-base leading-7 text-blue-50/90">{card.body}</p>
+                    <h3 className="text-xl font-normal text-[#5f9bff] sm:text-2xl">{card.title}</h3>
+                    <p className="mt-5 text-sm leading-6 text-blue-50/90 sm:mt-7 sm:text-base sm:leading-7">{card.body}</p>
                   </div>
 
-                  <div className="pointer-events-none absolute inset-y-0 right-0 w-[68%] opacity-80">
+                  <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[68%] opacity-80 sm:block">
                     <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(18,27,73,0),rgba(18,27,73,0.25)_22%,rgba(18,27,73,0.96)_92%)]" />
                     {card.visual === "ascii" ? (
                       <>
