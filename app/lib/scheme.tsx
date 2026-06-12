@@ -1175,25 +1175,25 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
         </div>
       </section>
 
-      <section className="relative grid min-h-[520px] place-items-center overflow-hidden py-16 text-center sm:min-h-[620px] sm:py-24">
-        <div className="lucien-orb absolute inset-x-0 top-0 mx-auto h-[560px] max-w-5xl opacity-80" />
+      <section className="relative grid min-h-[430px] place-items-center overflow-hidden py-12 text-center sm:min-h-[620px] sm:py-24">
+        <div className="lucien-orb absolute inset-x-0 top-0 mx-auto h-[430px] max-w-5xl opacity-70 sm:h-[560px] sm:opacity-80" />
         <div className="relative z-10">
-          <h2 className="mx-auto max-w-3xl text-[clamp(2.25rem,8vw,3rem)] font-normal leading-tight text-white">
+          <h2 className="mx-auto max-w-3xl text-[clamp(1.95rem,7vw,3rem)] font-normal leading-tight text-white">
             Build with certainty, teach without hesitation
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-blue-50/85">
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-blue-50/85 sm:mt-6 sm:text-base">
             Your sources deserve a learning experience that can explain itself.
           </p>
           <button
             onClick={startProcessing}
-            className="mt-10 rounded-[4px] bg-white px-6 py-3 font-mono text-[#070b24]"
+            className="mt-8 rounded-[4px] bg-white px-6 py-3 font-mono text-[#070b24] sm:mt-10"
           >
             Build Demo
           </button>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl py-16 sm:py-24">
+      <section className="mx-auto max-w-5xl py-12 sm:py-24">
         <SectionMarker>FAQ</SectionMarker>
         <h2 className="mt-10 text-center text-[clamp(2.25rem,8vw,3rem)] font-normal text-white">Your questions, answered</h2>
         <div className="mt-12 space-y-4 sm:mt-16">
