@@ -538,7 +538,7 @@ export function ProcessingScreen() {
             <Pill tone="blue">Processing sources</Pill>
             <span className="font-mono text-sm text-blue-100/60">{overall}%</span>
           </div>
-          <h1 className="mt-5 text-3xl font-semibold text-white">AI is building the learning scheme</h1>
+          <h1 className="mt-5 text-3xl font-semibold text-white">Tailgate is building the learning scheme</h1>
           <p className="mt-3 text-blue-100/65">This is predefined for the demo, but shows the intended production flow.</p>
 
           <div className="mt-6 h-1.5 overflow-hidden rounded-full bg-white/10">
