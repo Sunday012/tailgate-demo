@@ -98,7 +98,7 @@ export default function ProblemCardsSection() {
               {problemCards.map((card) => (
                 <article
                   key={card.title}
-                  className="relative h-[min(500px,72vh)] w-[760px] overflow-hidden rounded-[14px] border border-[#5b83db]/60 bg-[#121b49]/80 p-9 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                  className="relative h-[min(500px,72vh)] w-[760px] overflow-hidden rounded-[14px] border border-blue-300/25 bg-[#121b49]/80 p-9 text-left"
                 >
                   <div className="relative z-20 max-w-[390px]">
                     <div className="mb-10 grid size-8 place-items-center text-[#5f9bff]">
@@ -157,7 +157,7 @@ export default function ProblemCardsSection() {
                         ].map(([label, align]) => (
                           <div
                             key={label}
-                            className={`relative ${align} inline-flex rounded-full border border-[#5f9bff]/55 bg-[#07113a]/82 px-5 py-3 text-sm font-semibold text-blue-50 shadow-[0_0_24px_rgba(95,155,255,0.2)]`}
+                            className={`relative ${align} inline-flex rounded-full border border-blue-300/25 bg-[#07113a]/82 px-5 py-3 text-sm font-semibold text-blue-50`}
                           >
                             {label}
                           </div>
@@ -167,8 +167,8 @@ export default function ProblemCardsSection() {
 
                     {card.visual === "blocks" ? (
                       <div className="absolute right-12 top-20 h-80 w-80">
-                        <div className="absolute left-16 top-0 h-36 w-36 rotate-45 border border-[#5f9bff]/45 bg-[#101947]/75 shadow-[0_0_30px_rgba(95,155,255,0.18)]" />
-                        <div className="absolute bottom-8 right-0 h-40 w-40 rotate-45 border border-[#5f9bff]/45 bg-[#07113a]/85 shadow-[0_0_34px_rgba(95,155,255,0.18)]" />
+                        <div className="absolute left-16 top-0 h-36 w-36 rotate-45 border border-blue-300/25 bg-[#101947]/75" />
+                        <div className="absolute bottom-8 right-0 h-40 w-40 rotate-45 border border-blue-300/25 bg-[#07113a]/85" />
                         <div className="absolute left-36 top-16 h-40 w-px bg-gradient-to-b from-white via-[#5f9bff] to-[#1f74ff]" />
                         <div className="absolute left-[134px] top-12 h-0 w-0 border-x-[10px] border-b-[18px] border-x-transparent border-b-white" />
                         <div className="absolute left-[134px] bottom-12 h-0 w-0 border-x-[10px] border-t-[18px] border-x-transparent border-t-[#1f74ff]" />

@@ -138,8 +138,8 @@ function normalizeScheme(raw: any): Scheme | null {
 
 function Pill({ children, tone = "slate" }: { children: React.ReactNode; tone?: string }) {
   const tones: Record<string, string> = {
-    blue: "border-[#6ea2ff]/35 bg-[#6ea2ff]/10 text-[#6ea2ff]",
-    green: "border-blue-300/35 bg-white/[0.04] text-blue-50",
+    blue: "border-blue-300/25 bg-[#6ea2ff]/10 text-[#6ea2ff]",
+    green: "border-blue-300/25 bg-white/[0.04] text-blue-50",
     amber: "border-[#6ea2ff]/25 bg-transparent text-blue-100/80",
     rose: "border-blue-300/25 bg-blue-300/[0.06] text-blue-100/80",
     slate: "border-blue-300/25 bg-transparent text-blue-100/80",
@@ -279,7 +279,7 @@ export function LandingPage() {
             <div className="justify-self-center text-2xl font-bold tracking-[0.22em] text-white">TAILGATE</div>
             <button
               onClick={startProcessing}
-              className="justify-self-end rounded-[4px] bg-white px-5 py-3 text-[#070b24] shadow-[0_0_35px_rgba(155,190,255,0.25)] hover:bg-blue-50"
+              className="justify-self-end rounded-[4px] bg-white px-5 py-3 text-[#070b24] hover:bg-blue-50"
             >
               Book a Demo
             </button>
@@ -341,7 +341,7 @@ export function LandingPage() {
               )}
               <div className="space-y-3 px-3 py-3">
                 <div className="flex flex-wrap items-center gap-2">
-                  <label className="grid size-10 cursor-pointer place-items-center rounded-full border border-blue-300/25 text-2xl leading-none text-blue-100/80 hover:border-[#6ea2ff]/70 hover:text-[#6ea2ff]">
+                  <label className="grid size-10 cursor-pointer place-items-center rounded-full border border-blue-300/25 text-2xl leading-none text-blue-100/80 hover:border-blue-300/40 hover:text-[#6ea2ff]">
                     +
                     <input
                       className="hidden"
@@ -366,7 +366,7 @@ export function LandingPage() {
                   {["Spreadsheet", "Word", "PDF", "Image", "Text", "HTML", "Audio", "Video"].map((item) => (
                     <label
                       key={item}
-                      className="cursor-pointer rounded-full border border-blue-300/25 px-3 py-2 text-xs text-blue-100/80 hover:border-[#6ea2ff]/60 hover:text-[#6ea2ff]"
+                      className="cursor-pointer rounded-full border border-blue-300/25 px-3 py-2 text-xs text-blue-100/80 hover:border-blue-300/40 hover:text-[#6ea2ff]"
                     >
                       {item}
                       <input
@@ -400,7 +400,7 @@ export function LandingPage() {
                   </button>
                   <button
                     onClick={startProcessing}
-                    className="rounded-full bg-white px-6 py-2.5 font-mono text-sm text-[#070b24] shadow-[0_0_28px_rgba(132,176,255,0.35)] hover:bg-blue-50"
+                    className="rounded-full bg-white px-6 py-2.5 font-mono text-sm text-[#070b24] hover:bg-blue-50"
                   >
                     Submit sources
                   </button>
@@ -557,7 +557,7 @@ export function ProcessingScreen() {
                   key={step.title}
                   className={`flex items-center gap-4 rounded-[12px] border p-4 transition-all duration-500 ${
                     active
-                      ? "border-[#6ea2ff]/55 bg-[#6ea2ff]/10 shadow-[0_0_30px_rgba(110,162,255,0.18)]"
+                      ? "border-blue-300/30 bg-[#6ea2ff]/10"
                       : done
                         ? "border-blue-300/25 bg-blue-300/[0.05]"
                         : "border-blue-300/15 bg-white/[0.02] opacity-60"
@@ -570,7 +570,7 @@ export function ProcessingScreen() {
                         done
                           ? "bg-[#6ea2ff] text-[#070b24]"
                           : active
-                            ? "border-2 border-[#6ea2ff]/70 text-[#9cc2ff]"
+                            ? "border-2 border-blue-300/40 text-[#9cc2ff]"
                             : "bg-white/10 text-blue-100/45"
                       }`}
                     >
@@ -675,7 +675,7 @@ export function WorkspaceScreen() {
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(84,135,255,0.28),transparent_32%),linear-gradient(180deg,#070b24,#080d2e)] text-blue-50">
       <div className="grid min-h-screen lg:grid-cols-[320px_1fr]">
-        <aside className="border-r border-blue-300/20 bg-[#081033]/85 p-6 shadow-[inset_-1px_0_0_rgba(124,166,255,0.1)]">
+        <aside className="border-r border-blue-300/20 bg-[#081033]/85 p-6">
           <div className="flex items-center gap-3">
             <div>
               <p className="text-sm font-semibold uppercase text-white">Tailgate</p>
@@ -725,8 +725,8 @@ export function WorkspaceScreen() {
                     }}
                     className={`group w-full rounded-[12px] border p-4 text-left transition-all ${
                       active
-                        ? "border-[#6ea2ff]/55 bg-[#6ea2ff]/10 shadow-[0_0_24px_rgba(110,162,255,0.16)]"
-                        : "border-blue-300/20 bg-white/[0.02] hover:border-[#6ea2ff]/40 hover:bg-white/[0.04]"
+                        ? "border-blue-300/30 bg-[#6ea2ff]/10"
+                        : "border-blue-300/20 bg-white/[0.02] hover:border-blue-300/35 hover:bg-white/[0.04]"
                     }`}
                   >
                     <div className="flex items-start justify-between gap-2">
@@ -825,7 +825,7 @@ export function WorkspaceScreen() {
                 window.getSelection()?.removeAllRanges();
               }}
               style={{ left: selection.x, top: selection.y - 12 }}
-              className="fixed z-40 -translate-x-1/2 -translate-y-full rounded-full border border-[#6ea2ff]/60 bg-[#0d1744] px-4 py-2 text-sm font-semibold text-white shadow-[0_0_24px_rgba(110,162,255,0.35)] hover:bg-[#13205a]"
+              className="fixed z-40 -translate-x-1/2 -translate-y-full rounded-full border border-blue-300/35 bg-[#0d1744] px-4 py-2 text-sm font-semibold text-white hover:bg-[#13205a]"
             >
               ✦ Ask AI about this
             </button>
@@ -833,13 +833,13 @@ export function WorkspaceScreen() {
 
           <button
             onClick={() => setChatOpen((value) => !value)}
-            className="fixed bottom-6 right-6 z-20 rounded-full border border-blue-300/40 bg-[#070b24] px-5 py-4 font-semibold text-white shadow-xl shadow-blue-950/40 hover:border-[#6ea2ff] hover:text-[#6ea2ff]"
+            className="fixed bottom-6 right-6 z-20 rounded-full border border-blue-300/30 bg-[#070b24] px-5 py-4 font-semibold text-white hover:border-blue-300/45 hover:text-[#6ea2ff]"
           >
             Ask AI
           </button>
 
           {chatOpen && (
-            <div className="fixed bottom-24 right-6 z-30 w-[min(420px,calc(100vw-2rem))] rounded-[18px] border border-blue-300/30 bg-[#0d1744] shadow-[0_0_45px_rgba(78,128,230,0.12)] shadow-2xl shadow-blue-950/50">
+            <div className="fixed bottom-24 right-6 z-30 w-[min(420px,calc(100vw-2rem))] rounded-[18px] border border-blue-300/30 bg-[#0d1744]">
               <div className="flex items-center justify-between border-b border-blue-300/20 p-4">
                 <div>
                   <p className="font-semibold text-white">Context chat</p>
@@ -849,7 +849,7 @@ export function WorkspaceScreen() {
               </div>
               <div className="space-y-3 p-4 text-sm">
                 {highlight && (
-                  <div className="rounded-[8px] border border-[#6ea2ff]/40 bg-[#6ea2ff]/10 p-3 text-blue-100">
+                  <div className="rounded-[8px] border border-blue-300/25 bg-[#6ea2ff]/10 p-3 text-blue-100">
                     <div className="mb-1 flex items-center justify-between">
                       <p className="text-xs uppercase tracking-wide text-blue-100/45">Highlighted from the document</p>
                       <button onClick={() => setHighlight("")} className="text-xs text-blue-100/50 hover:text-white">Clear</button>
@@ -1023,7 +1023,7 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
             {solutionInputs.map((node) => (
               <div
                 key={node.label}
-                className="absolute left-[7%] flex h-12 w-48 items-center justify-center gap-4 rounded-[18px] border border-[#5b83db]/45 bg-[#101947]/78 text-base text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
+                className="absolute left-[7%] flex h-12 w-48 items-center justify-center gap-4 rounded-[18px] border border-blue-300/25 bg-[#101947]/78 text-base text-white"
                 style={{ top: node.y }}
               >
                 <span className="w-8 text-center font-mono text-xs text-[#6ea2ff]">{node.icon}</span>
@@ -1033,8 +1033,8 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
 
             <div className="absolute left-1/2 top-[52%] flex -translate-x-1/2 -translate-y-1/2 items-start gap-6">
               <div className="text-center">
-                <div className="grid size-24 place-items-center rounded-[14px] border border-[#5f8df5]/80 bg-[#13235e]/95 shadow-[0_0_48px_rgba(86,145,255,0.3)]">
-                  <div className="grid size-16 place-items-center rounded-[10px] border border-[#6ea2ff]/70 bg-[#07113a] text-2xl font-black text-white">
+                <div className="grid size-24 place-items-center rounded-[14px] border border-blue-300/35 bg-[#13235e]/95">
+                  <div className="grid size-16 place-items-center rounded-[10px] border border-blue-300/35 bg-[#07113a] text-2xl font-black text-white">
                     TG
                   </div>
                 </div>
@@ -1042,9 +1042,9 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
               </div>
 
               <div className="text-center">
-                <div className="flex h-24 items-center gap-3 rounded-[14px] border border-[#5f8df5]/80 bg-[#13235e]/95 px-4 shadow-[0_0_58px_rgba(86,145,255,0.32)]">
+                <div className="flex h-24 items-center gap-3 rounded-[14px] border border-blue-300/35 bg-[#13235e]/95 px-4">
                   {["◐", "◎", "✦"].map((item) => (
-                    <div key={item} className="grid size-16 place-items-center rounded-[10px] border border-[#6ea2ff]/70 bg-[#07113a] text-3xl text-white">
+                    <div key={item} className="grid size-16 place-items-center rounded-[10px] border border-blue-300/35 bg-[#07113a] text-3xl text-white">
                       {item}
                     </div>
                   ))}
@@ -1053,8 +1053,8 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
               </div>
 
               <div className="text-center">
-                <div className="grid size-24 place-items-center rounded-[14px] border border-[#5f8df5]/80 bg-[#13235e]/95 shadow-[0_0_48px_rgba(86,145,255,0.3)]">
-                  <div className="grid size-16 place-items-center rounded-[10px] border border-[#6ea2ff]/70 bg-[#07113a] text-2xl font-black text-white">
+                <div className="grid size-24 place-items-center rounded-[14px] border border-blue-300/35 bg-[#13235e]/95">
+                  <div className="grid size-16 place-items-center rounded-[10px] border border-blue-300/35 bg-[#07113a] text-2xl font-black text-white">
                     TG
                   </div>
                 </div>
@@ -1065,7 +1065,7 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
             {solutionOutputs.map((node) => (
               <div
                 key={node.label}
-                className="absolute right-[7%] flex h-12 w-48 items-center justify-center gap-4 rounded-[18px] border border-[#5b83db]/45 bg-[#101947]/78 text-base text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
+                className="absolute right-[7%] flex h-12 w-48 items-center justify-center gap-4 rounded-[18px] border border-blue-300/25 bg-[#101947]/78 text-base text-white"
                 style={{ top: node.y }}
               >
                 <span className="w-8 text-center font-mono text-xs text-[#6ea2ff]">{node.icon}</span>
@@ -1112,7 +1112,7 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
           </p>
           <button
             onClick={startProcessing}
-            className="mt-10 rounded-[4px] bg-white px-6 py-3 font-mono text-[#070b24] shadow-[0_0_35px_rgba(155,190,255,0.3)]"
+            className="mt-10 rounded-[4px] bg-white px-6 py-3 font-mono text-[#070b24]"
           >
             Build Demo
           </button>
@@ -1124,7 +1124,7 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
         <h2 className="mt-10 text-center text-5xl font-normal text-white">Your questions, answered</h2>
         <div className="mt-16 space-y-4">
           {faqs.map((faq) => (
-            <details key={faq} className="rounded-[16px] border border-[#5b83db]/45 bg-[#0b1440]/55 px-6 py-5">
+            <details key={faq} className="rounded-[16px] border border-blue-300/25 bg-[#0b1440]/55 px-6 py-5">
               <summary className="cursor-pointer text-xl text-white">{faq}</summary>
               <p className="mt-4 leading-7 text-blue-50/80">
                 This demo mocks the product behavior with predefined data so the full story can be presented in three days.
@@ -1230,8 +1230,8 @@ function ActivityMatcher() {
                     : isWrong
                       ? "border-rose-400/60 bg-rose-400/10"
                       : isSelected
-                        ? "border-[#6ea2ff] bg-[#6ea2ff]/12 shadow-[0_0_22px_rgba(110,162,255,0.2)]"
-                        : "border-blue-300/25 bg-blue-950/30 hover:border-[#6ea2ff]/50"
+                        ? "border-blue-300/35 bg-[#6ea2ff]/12"
+                        : "border-blue-300/25 bg-blue-950/30 hover:border-blue-300/35"
                 }`}
               >
                 <p className="font-medium text-white">{pair.source}</p>
@@ -1256,7 +1256,7 @@ function ActivityMatcher() {
                   owner
                     ? "border-blue-300/30 bg-blue-300/[0.08]"
                     : selectedSource
-                      ? "border-[#6ea2ff]/45 bg-blue-950/30 hover:border-[#6ea2ff] hover:bg-[#6ea2ff]/10"
+                      ? "border-blue-300/30 bg-blue-950/30 hover:border-blue-300/40 hover:bg-[#6ea2ff]/10"
                       : "border-blue-300/20 bg-blue-950/30 opacity-70"
                 }`}
               >
@@ -1336,7 +1336,7 @@ function LessonView({
             <button
               key={tab}
               onClick={() => setLessonTab(tab as LessonTab)}
-              className={`rounded-full border px-4 py-2 text-sm capitalize ${lessonTab === tab ? "border-[#6ea2ff]/60 text-[#6ea2ff]" : "border-blue-300/25 text-blue-100/70 hover:text-white"}`}
+              className={`rounded-full border px-4 py-2 text-sm capitalize ${lessonTab === tab ? "border-blue-300/35 text-[#6ea2ff]" : "border-blue-300/25 text-blue-100/70 hover:text-white"}`}
             >
               {tab}
             </button>
@@ -1395,7 +1395,7 @@ function LessonView({
                           next[questionIndex] = optionIndex;
                           setAnswers(next);
                         }}
-                        className={`rounded-[8px] border px-3 py-3 text-left text-sm ${answers[questionIndex] === optionIndex ? "border-[#6ea2ff]/45 bg-blue-300/10 text-white" : "border-blue-300/20 bg-blue-950/30 text-blue-100/80"}`}
+                        className={`rounded-[8px] border px-3 py-3 text-left text-sm ${answers[questionIndex] === optionIndex ? "border-blue-300/30 bg-blue-300/10 text-white" : "border-blue-300/20 bg-blue-950/30 text-blue-100/80"}`}
                       >
                         {option}
                       </button>
@@ -1444,7 +1444,7 @@ function LessonView({
       </article>
 
       <aside className="space-y-5">
-        <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] shadow-[0_0_45px_rgba(78,128,230,0.12)] p-5">
+        <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
           <h3 className="font-semibold text-white">Document tools</h3>
           <div className="mt-4 space-y-2">
             <button
@@ -1472,7 +1472,7 @@ function LessonView({
             </button>
           </div>
         </div>
-        <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] shadow-[0_0_45px_rgba(78,128,230,0.12)] p-5">
+        <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
           <h3 className="font-semibold text-white">Progress snapshot</h3>
           <div className="mt-4 space-y-4">
             <div><p className="mb-2 text-sm text-blue-100/65">Quiz accuracy</p><Bar value={82} /></div>
@@ -1495,13 +1495,13 @@ function DashboardView() {
           ["43", "Glossary terms", "amber"],
           ["5", "Study reminders", "rose"],
         ].map(([value, label, tone]) => (
-          <div key={label} className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] shadow-[0_0_45px_rgba(78,128,230,0.12)] p-5">
+          <div key={label} className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
             <Pill tone={tone}>{label}</Pill>
             <p className="mt-4 text-4xl font-semibold text-white">{value}</p>
           </div>
         ))}
       </div>
-      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] shadow-[0_0_45px_rgba(78,128,230,0.12)] p-5">
+      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
         <h3 className="text-lg font-semibold text-white">Post-quiz feedback animation</h3>
         <div className="mt-5 grid gap-4 md:grid-cols-3">
           <div className="rounded-[8px] bg-blue-400/10 p-4"><p className="text-blue-100">Strong</p><p className="mt-2 text-white">Financial reports</p><Bar value={91} tone="bg-blue-400" /></div>
@@ -1526,7 +1526,7 @@ function LibraryView({
   const added = expandedSources || addedSources.length > 0;
   return (
     <div className="space-y-5">
-      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] shadow-[0_0_45px_rgba(78,128,230,0.12)] p-5">
+      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <h3 className="text-lg font-semibold text-white">Uploaded documents</h3>
@@ -1563,7 +1563,7 @@ function LibraryView({
           </div>
         </div>
         {added && (
-          <div className="mt-4 flex items-center gap-3 rounded-[10px] border border-[#6ea2ff]/35 bg-[#6ea2ff]/10 px-4 py-3 text-sm text-blue-50">
+          <div className="mt-4 flex items-center gap-3 rounded-[10px] border border-blue-300/25 bg-[#6ea2ff]/10 px-4 py-3 text-sm text-blue-50">
             <span className="grid size-6 shrink-0 place-items-center rounded-full bg-[#6ea2ff] text-xs text-[#070b24]">✓</span>
             New module <span className="font-semibold text-white">&ldquo;Procurement Exceptions&rdquo;</span> inserted from your added sources — existing modules stayed unchanged.
           </div>
@@ -1575,7 +1575,7 @@ function LibraryView({
           return (
             <div
               key={`${source.name}-${index}`}
-              className={`rounded-[18px] border bg-[#0d1744] p-4 shadow-[0_0_45px_rgba(78,128,230,0.12)] ${isNew ? "border-[#6ea2ff]/55" : "border-blue-300/30"}`}
+              className={`rounded-[18px] border bg-[#0d1744] p-4 ${isNew ? "border-blue-300/35" : "border-blue-300/30"}`}
             >
               <div className="relative h-28 overflow-hidden rounded-[6px] border border-dashed border-blue-300/35 bg-gradient-to-br from-blue-900/50 via-[#0d1744] to-[#050b24]">
                 {isNew && (
@@ -1595,7 +1595,7 @@ function LibraryView({
 function ScheduleView() {
   return (
     <div className="grid gap-5 xl:grid-cols-[1fr_360px]">
-      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] shadow-[0_0_45px_rgba(78,128,230,0.12)] p-5">
+      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-semibold text-white">June 2026</h3>
           <Pill tone="blue">Week view</Pill>
@@ -1613,7 +1613,7 @@ function ScheduleView() {
           ))}
         </div>
       </div>
-      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] shadow-[0_0_45px_rgba(78,128,230,0.12)] p-5">
+      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
         <h3 className="text-lg font-semibold text-white">Set reminder</h3>
         <div className="mt-4 space-y-3">
           <input className="w-full rounded-[8px] border border-blue-300/20 bg-blue-950/30 px-3 py-3 outline-none" defaultValue="Inventory Operations review" />
@@ -1631,7 +1631,7 @@ function ScheduleView() {
 function ProfileView() {
   return (
     <div className="grid gap-5 md:grid-cols-2">
-      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] shadow-[0_0_45px_rgba(78,128,230,0.12)] p-5">
+      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
         <h3 className="text-lg font-semibold text-white">Learner info</h3>
         <dl className="mt-5 space-y-4 text-sm">
           <div><dt className="text-blue-100/40">Name</dt><dd className="text-white">Favour Sunday</dd></div>
@@ -1639,7 +1639,7 @@ function ProfileView() {
           <div><dt className="text-blue-100/40">Goal</dt><dd className="text-white">Understand production accounting reports in 3 days</dd></div>
         </dl>
       </div>
-      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] shadow-[0_0_45px_rgba(78,128,230,0.12)] p-5">
+      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
         <h3 className="text-lg font-semibold text-white">Saved glossaries</h3>
         <div className="mt-4 space-y-2">
           {["Accounting terms", "Inventory terms", "Production controls"].map((item) => <div key={item} className="rounded-[8px] bg-blue-300/10 p-3">{item}</div>)}
@@ -1648,4 +1648,3 @@ function ProfileView() {
     </div>
   );
 }
-
