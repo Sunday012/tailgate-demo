@@ -288,7 +288,7 @@ export function LandingPage() {
           <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-screen bg-[radial-gradient(ellipse_72%_58%_at_50%_82%,rgba(246,249,255,0.92)_0%,rgba(160,197,255,0.5)_24%,rgba(64,104,205,0.2)_46%,rgba(8,13,45,0)_70%)]" />
 
           <div className="relative z-10 flex flex-1 flex-col items-center justify-center pb-8 pt-16 text-center">
-            <h1 className="max-w-6xl bg-[linear-gradient(106deg,#f6f9ff_46%,rgba(150,190,255,0.6)_92%)] bg-clip-text text-[clamp(3.5rem,6.2vw,6.75rem)] font-normal leading-[0.95] tracking-normal text-transparent [-webkit-background-clip:text]">
+            <h1 className="max-w-xl bg-[linear-gradient(106deg,#f6f9ff_46%,rgba(150,190,255,0.6)_92%)] bg-clip-text text-[clamp(3.5rem,6.2vw,3.75rem)] font-normal leading-[0.95] tracking-normal text-transparent [-webkit-background-clip:text]">
               Real-Time Study Scheme Generation
               <span className="block">from Any Source</span>
             </h1>
@@ -408,7 +408,7 @@ export function LandingPage() {
               </div>
             </div>
 
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-sm text-blue-100/45">
+            <div className="mt-24 flex flex-wrap items-center justify-center gap-3 text-sm text-blue-100/45">
               <span>or add</span>
               <button
                 onClick={() => setPrompt((current) => `${current}\n\nLink added: https://tacniju.vercel.app/accounting/production/raw-material-journal`)}
