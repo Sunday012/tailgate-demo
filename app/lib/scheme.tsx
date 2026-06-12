@@ -1593,37 +1593,124 @@ function LibraryView({
 }
 
 function ScheduleView() {
+  const weekDays = [
+    { day: "Mon", date: "15", status: "Today", total: "42 min", events: [{ title: "Inventory Operations", type: "Lesson", time: "7:00 PM", tone: "bg-[#6ea2ff]/14" }] },
+    { day: "Tue", date: "16", status: "Open", total: "18 min", events: [{ title: "Glossary review", type: "Recall", time: "7:00 PM", tone: "bg-blue-400/12" }] },
+    { day: "Wed", date: "17", status: "Booked", total: "24 min", events: [{ title: "Accounting quiz", type: "Quiz", time: "7:00 PM", tone: "bg-sky-300/12" }] },
+    { day: "Thu", date: "18", status: "Booked", total: "16 min", events: [{ title: "Bills pending drill", type: "Cards", time: "7:00 PM", tone: "bg-cyan-300/12" }] },
+    { day: "Fri", date: "19", status: "Booked", total: "31 min", events: [{ title: "Weekly checkpoint", type: "Review", time: "7:00 PM", tone: "bg-indigo-300/12" }] },
+  ];
+
   return (
-    <div className="grid gap-5 xl:grid-cols-[1fr_360px]">
-      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
-        <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-white">June 2026</h3>
-          <Pill tone="blue">Week view</Pill>
+    <div className="grid gap-7 2xl:grid-cols-[minmax(0,1fr)_380px]">
+      <section className="space-y-4">
+        <div className="rounded-[14px] border border-blue-300/25 bg-[#0d1744] p-6">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-blue-100/45">Study plan</p>
+              <h3 className="mt-2 text-2xl font-semibold text-white">June 15-19, 2026</h3>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Pill tone="blue">Week view</Pill>
+              <Pill tone="slate">3.1 hrs planned</Pill>
+            </div>
+          </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            {[
+              ["5", "study blocks"],
+              ["82%", "target accuracy"],
+              ["4", "review streak"],
+            ].map(([value, label]) => (
+              <div key={label} className="rounded-[10px] border border-blue-300/15 bg-blue-950/30 p-5">
+                <p className="text-2xl font-semibold text-white">{value}</p>
+                <p className="mt-1 text-sm text-blue-100/55">{label}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="mt-5 grid gap-3 md:grid-cols-5">
-          {["Mon 15", "Tue 16", "Wed 17", "Thu 18", "Fri 19"].map((day, index) => (
-            <div key={day} className="min-h-56 rounded-[8px] border border-blue-300/20 bg-blue-300/[0.06] p-3">
-              <p className="text-sm font-medium text-blue-100/80">{day}</p>
-              {index !== 1 && (
-                <div className="mt-4 rounded-[8px] bg-[#6ea2ff]/12 p-3 text-sm text-white">
-                  {index % 2 ? "Glossary review" : "Accounting quiz"}<br />7:00 PM
+
+        <div className="grid gap-4 xl:grid-cols-2">
+          {weekDays.map((item) => (
+            <div key={`${item.day}-${item.date}`} className="rounded-[12px] border border-blue-300/20 bg-[#0d1744] p-5">
+              <div className="grid gap-5 sm:grid-cols-[112px_1fr_auto] sm:items-center">
+                <div className="flex items-center gap-4 sm:block">
+                  <p className="text-sm font-semibold text-blue-100/65">{item.day}</p>
+                  <p className="text-4xl font-semibold text-white sm:mt-2">{item.date}</p>
                 </div>
-              )}
+                <div className="space-y-3">
+                  {item.events.map((event) => (
+                    <div key={event.title} className={`rounded-[10px] border border-blue-300/15 ${event.tone} p-4`}>
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs uppercase tracking-[0.12em] text-blue-100/45">
+                        <span>{event.type}</span>
+                        <span>{event.time}</span>
+                      </div>
+                      <p className="mt-2 text-lg font-semibold leading-6 text-white">{event.title}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between gap-3 sm:block sm:text-right">
+                  <span className="rounded-full border border-blue-300/15 bg-blue-950/30 px-3 py-1.5 text-xs text-blue-100/55">{item.status}</span>
+                  <p className="text-xs uppercase tracking-[0.12em] text-blue-100/40 sm:mt-4">{item.total}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
-      </div>
-      <div className="rounded-[18px] border border-blue-300/30 bg-[#0d1744] p-5">
-        <h3 className="text-lg font-semibold text-white">Set reminder</h3>
-        <div className="mt-4 space-y-3">
-          <input className="w-full rounded-[8px] border border-blue-300/20 bg-blue-950/30 px-3 py-3 outline-none" defaultValue="Inventory Operations review" />
-          <input className="w-full rounded-[8px] border border-blue-300/20 bg-blue-950/30 px-3 py-3 outline-none" defaultValue="2026-06-15 19:00" />
-          <div className="grid grid-cols-3 gap-2">
-            {["Email", "SMS", "Push"].map((item) => <button key={item} className="rounded-[8px] border border-blue-300/20 bg-blue-300/10 py-2 text-sm">{item}</button>)}
+      </section>
+
+      <aside className="space-y-4">
+        <div className="rounded-[14px] border border-blue-300/25 bg-[#0d1744] p-6">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-blue-100/45">Reminder</p>
+              <h3 className="mt-2 text-xl font-semibold text-white">Inventory review</h3>
+            </div>
+            <span className="rounded-full bg-[#6ea2ff] px-3 py-1 text-xs font-semibold text-[#070b24]">Active</span>
           </div>
-          <button className="w-full rounded-full bg-[#6ea2ff] py-3 font-semibold text-[#070b24]">Save reminder</button>
+          <div className="mt-5 space-y-4">
+            <label className="block">
+              <span className="text-xs font-semibold uppercase tracking-[0.12em] text-blue-100/45">Title</span>
+              <input className="mt-2 w-full rounded-[10px] border border-blue-300/20 bg-blue-950/30 px-4 py-3 text-blue-50 outline-none focus:border-blue-300/40" defaultValue="Inventory Operations review" />
+            </label>
+            <div className="grid gap-3 sm:grid-cols-2 2xl:grid-cols-1">
+              <label className="block">
+                <span className="text-xs font-semibold uppercase tracking-[0.12em] text-blue-100/45">Date</span>
+                <input className="mt-2 w-full rounded-[10px] border border-blue-300/20 bg-blue-950/30 px-4 py-3 text-blue-50 outline-none focus:border-blue-300/40" defaultValue="2026-06-15" />
+              </label>
+              <label className="block">
+                <span className="text-xs font-semibold uppercase tracking-[0.12em] text-blue-100/45">Time</span>
+                <input className="mt-2 w-full rounded-[10px] border border-blue-300/20 bg-blue-950/30 px-4 py-3 text-blue-50 outline-none focus:border-blue-300/40" defaultValue="19:00" />
+              </label>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-blue-100/45">Channels</p>
+              <div className="mt-2 grid gap-2 sm:grid-cols-3 2xl:grid-cols-1">
+                {["Email", "SMS", "Push"].map((item, index) => (
+                  <button
+                    key={item}
+                    className={`rounded-[10px] border px-3 py-3 text-sm ${index === 0 ? "border-blue-300/35 bg-[#6ea2ff]/12 text-white" : "border-blue-300/20 bg-blue-950/30 text-blue-100/70"}`}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <button className="w-full rounded-full bg-[#6ea2ff] py-3 font-semibold text-[#070b24] hover:bg-[#86b4ff]">Save reminder</button>
+          </div>
         </div>
-      </div>
+
+        <div className="rounded-[14px] border border-blue-300/20 bg-[#0d1744] p-6">
+          <h3 className="font-semibold text-white">Next up</h3>
+          <div className="mt-4 space-y-3">
+            {["Read generated lesson", "Complete 6 flashcards", "Take objective quiz"].map((item, index) => (
+              <div key={item} className="flex items-center gap-3 rounded-[10px] bg-blue-950/25 p-3">
+                <span className="grid size-7 place-items-center rounded-full bg-blue-300/10 text-xs text-blue-100/70">{index + 1}</span>
+                <span className="text-sm text-blue-50">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </aside>
     </div>
   );
 }
