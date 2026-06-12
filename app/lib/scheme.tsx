@@ -304,7 +304,7 @@ export function LandingPage() {
               <textarea
                 value={prompt}
                 onChange={(event) => setPrompt(event.target.value)}
-                className="min-h-32 w-full resize-none rounded-[12px] border border-blue-300/15 bg-[#081036]/70 px-4 py-4 text-base leading-7 text-blue-50 outline-none placeholder:text-blue-100/45 sm:px-5 sm:py-5 sm:text-lg sm:leading-8"
+                className="min-h-28 w-full resize-none overflow-hidden rounded-[12px] border border-blue-300/15 bg-[#081036]/70 px-4 py-4 text-base leading-7 text-blue-50 outline-none placeholder:text-blue-100/45 sm:min-h-32 sm:px-5 sm:py-5 sm:text-lg sm:leading-8"
                 placeholder="Upload sources and tell Tailgate what study scheme to create..."
               />
               {uploadedFiles.length > 0 && (
@@ -339,9 +339,9 @@ export function LandingPage() {
                   ))}
                 </div>
               )}
-              <div className="space-y-3 px-3 py-3">
+              <div className="space-y-3 px-2 py-3 sm:px-3">
                 <div className="flex flex-wrap items-center gap-2">
-                  <label className="grid size-10 cursor-pointer place-items-center rounded-full border border-blue-300/25 text-2xl leading-none text-blue-100/80 hover:border-blue-300/40 hover:text-[#6ea2ff]">
+                  <label className="grid size-9 cursor-pointer place-items-center rounded-full border border-blue-300/25 text-xl leading-none text-blue-100/80 hover:border-blue-300/40 hover:text-[#6ea2ff] sm:size-10 sm:text-2xl">
                     +
                     <input
                       className="hidden"
@@ -366,7 +366,7 @@ export function LandingPage() {
                   {["Spreadsheet", "Word", "PDF", "Image", "Text", "HTML", "Audio", "Video"].map((item) => (
                     <label
                       key={item}
-                      className="cursor-pointer rounded-full border border-blue-300/25 px-3 py-2 text-xs text-blue-100/80 hover:border-blue-300/40 hover:text-[#6ea2ff]"
+                      className="cursor-pointer rounded-full border border-blue-300/25 px-3 py-1.5 text-[11px] text-blue-100/80 hover:border-blue-300/40 hover:text-[#6ea2ff] sm:py-2 sm:text-xs"
                     >
                       {item}
                       <input
@@ -391,16 +391,16 @@ export function LandingPage() {
                     </label>
                   ))}
                 </div>
-                <div className="flex flex-col gap-2 border-t border-blue-300/15 pt-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="grid gap-2 border-t border-blue-300/15 pt-3 sm:flex sm:items-center sm:justify-between">
                   <button
                     onClick={() => setPrompt("Search my uploaded sources for pending bills, stock gaps, and production controls before creating the scheme.")}
-                    className="rounded-full border border-blue-300/25 px-4 py-2 text-sm text-blue-100/80 hover:border-blue-200/70"
+                    className="rounded-full border border-blue-300/25 px-4 py-2.5 text-sm text-blue-100/80 hover:border-blue-200/70 sm:py-2"
                   >
                     Search sources
                   </button>
                   <button
                     onClick={startProcessing}
-                    className="rounded-full bg-white px-6 py-2.5 font-mono text-sm text-[#070b24] hover:bg-blue-50"
+                    className="rounded-full bg-white px-6 py-3 font-mono text-sm text-[#070b24] hover:bg-blue-50 sm:py-2.5"
                   >
                     Submit sources
                   </button>
