@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #070b24;
+  --foreground: #f7f9ff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #070b24;
+    --foreground: #f7f9ff;
   }
 }
 
@@ -23,4 +23,73 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  /* clip (not hidden) so the w-screen sections can't cause horizontal
+     scroll without turning the page into a scroll container — which
+     would break position: sticky on the pinned card section. */
+  overflow-x: clip;
+}
+
+html {
+  overflow-x: clip;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(91, 145, 255, 0.42);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070b24;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6d91d8;
+  border: 4px solid #070b24;
+  border-radius: 999px;
+}
+
+.lucien-page {
+  /* Glow weighted to the bottom so the hero reads as a horizon dome
+     (top stays dark navy); the bright core is the hero overlay div. */
+  background:
+    radial-gradient(ellipse 120% 64% at 50% 96%, rgba(214, 233, 255, 0.45) 0%, rgba(96, 144, 238, 0.32) 22%, rgba(32, 58, 138, 0.2) 42%, rgba(8, 13, 45, 0) 66%),
+    radial-gradient(circle at 6% 42%, rgba(90, 151, 255, 0.28), transparent 26%),
+    radial-gradient(circle at 94% 37%, rgba(91, 148, 255, 0.24), transparent 24%),
+    linear-gradient(180deg, #060a22 0%, #070b24 46%, #080d2e 100%);
+}
+
+.lucien-surface {
+  background:
+    linear-gradient(180deg, rgba(28, 42, 91, 0.82), rgba(10, 16, 48, 0.92)),
+    repeating-linear-gradient(90deg, rgba(94, 151, 255, 0.05) 0 1px, transparent 1px 14px);
+  border-color: rgba(119, 161, 255, 0.42);
+  box-shadow: 0 0 70px rgba(84, 140, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.lucien-orb {
+  background:
+    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.92) 0%, rgba(177, 210, 255, 0.74) 20%, rgba(91, 145, 255, 0.35) 42%, rgba(14, 25, 70, 0) 72%),
+    repeating-linear-gradient(0deg, rgba(118, 169, 255, 0.08) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(90deg, rgba(118, 169, 255, 0.08) 0 1px, transparent 1px 9px);
+  filter: blur(0.2px);
+}
+
+.lucien-chip {
+  border-color: rgba(119, 161, 255, 0.45);
+  background: rgba(13, 22, 62, 0.68);
+  color: #7fb0ff;
 }
