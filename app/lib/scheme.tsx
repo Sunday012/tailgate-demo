@@ -960,7 +960,7 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
 
   return (
     <div className="relative z-10 pb-20 pt-24">
-      <section className="min-h-[520px]">
+      {/* <section className="min-h-[420px]">
         <SectionMarker>Trusted by</SectionMarker>
         <div className="mt-24 grid grid-cols-2 items-center gap-10 opacity-90 md:grid-cols-6">
           {logos.map((logo) => (
@@ -969,9 +969,9 @@ function LandingSections({ startProcessing }: { startProcessing: () => void }) {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
-      <section className="mx-auto max-w-6xl py-20 text-center">
+      <section className="mx-auto max-w-6xl pb-20 text-center">
         <SectionMarker>The Mission</SectionMarker>
         <h2 className="mt-10 text-[clamp(3rem,5vw,5.75rem)] font-normal leading-[1.08] text-white">
           You can&apos;t study what you can&apos;t see. Hidden knowledge needs to be structured and usable.
